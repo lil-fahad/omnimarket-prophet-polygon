@@ -1,5 +1,6 @@
-logging.basicConfig(level=logging.INFO)
 import logging
+logging.basicConfig(level=logging.INFO)
+
 import streamlit as st
 from core.auto_predictor import run_prediction
 from core.recommender import recommend_options
