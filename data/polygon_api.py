@@ -1,3 +1,7 @@
+from dotenv import load_dotenv
+import os
+load_dotenv()
+
 logging.basicConfig(level=logging.INFO)
 import logging
 import requests
