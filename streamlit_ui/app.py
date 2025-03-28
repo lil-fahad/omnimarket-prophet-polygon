@@ -4,6 +4,7 @@ import streamlit as st
 from core.auto_predictor import run_prediction
 from core.recommender import recommend_options
 from core.explainable_ai import explain_prediction
+from data.polygon_api import fetch_polygon_data as get_stock_data  # ✅ التعديل هنا
 
 st.set_page_config(page_title="OmniMarket Prophet")
 
