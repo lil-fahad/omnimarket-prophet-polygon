@@ -1,29 +1,26 @@
-logging.basicConfig(level=logging.INFO)
-import logging
-import openai
+
+from dotenv import load_dotenv
+load_dotenv()
+
 import os
+import openai
 
-def explain_prediction(symbol, prediction_summary, model_name=""):
-    """
-    وظيفة: explain_prediction
-    """
-    api_key = os.getenv("OPENAI_API_KEY")
-    if not api_key:
-        return "⚠️ لا يوجد مفتاح API لتفسير GPT"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
-    openai.api_key = api_key
-    prompt = f"""
-    سهم {symbol} تم تحليله باستخدام نموذج {model_name}.
-    النتائج أظهرت التالي: {prediction_summary}.
-    وضّح ما تعنيه هذه النتائج للمستثمر بشكل مبسط.
+def explain_prediction(symbol, context, model_name):
     """
+    توضح هذه الدالة التنبؤ الذي قام به النموذج بلغة مفهومة.
+    """
+    prompt = f"""فسر للمستثمر سبب التوصية بسهم {symbol} باستخدام النموذج {model_name}.
+معلومات إضافية:
+{context}
+الرجاء تقديم تفسير مبسط يمكن فهمه من قبل غير المتخصصين.
+"""
 
-    try:
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=200
-        )
-        return response.choices[0].message['content'].strip()
-    except Exception as e:
-        return f"حدث خطأ أثناء الاتصال بـ GPT: {str(e)}"
+    response = openai.ChatCompletion.create(
+        model="gpt-4",
+        messages=[{"role": "user", "content": prompt}],
+        max_tokens=200
+    )
+
+    return response["choices"][0]["message"]["content"]

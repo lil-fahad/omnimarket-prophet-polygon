@@ -1,5 +1,5 @@
-logging.basicConfig(level=logging.INFO)
 import logging
+logging.basicConfig(level=logging.INFO)
 from sklearn.metrics import mean_absolute_error
 import numpy as np
 

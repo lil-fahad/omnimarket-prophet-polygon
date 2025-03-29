@@ -1,5 +1,5 @@
-logging.basicConfig(level=logging.INFO)
 import logging
+logging.basicConfig(level=logging.INFO)
 from models.lstm_advanced import build_lstm_advanced
 import xgboost as xgb
 import numpy as np

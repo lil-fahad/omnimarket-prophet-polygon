@@ -1,5 +1,9 @@
-logging.basicConfig(level=logging.INFO)
+from dotenv import load_dotenv
+import os
+load_dotenv()
+
 import logging
+logging.basicConfig(level=logging.INFO)
 import requests
 import pandas as pd
 import os

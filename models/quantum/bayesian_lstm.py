@@ -1,5 +1,5 @@
-logging.basicConfig(level=logging.INFO)
 import logging
+logging.basicConfig(level=logging.INFO)
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
 

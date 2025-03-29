@@ -1,5 +1,5 @@
-logging.basicConfig(level=logging.INFO)
 import logging
+logging.basicConfig(level=logging.INFO)
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import numpy as np
 

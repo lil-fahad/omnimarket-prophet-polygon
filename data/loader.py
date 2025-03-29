@@ -1,3 +1,4 @@
+import logging
 logging.basicConfig(level=logging.INFO)
 import logging
 from data.polygon_api import fetch_polygon_data

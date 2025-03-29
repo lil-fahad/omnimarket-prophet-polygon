@@ -1,5 +1,5 @@
-logging.basicConfig(level=logging.INFO)
 import logging
+logging.basicConfig(level=logging.INFO)
 def recommend_options(price, prediction, risk="neutral", horizon="short"):
     """
     وظيفة: recommend_options
